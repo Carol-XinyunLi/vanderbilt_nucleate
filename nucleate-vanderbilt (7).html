@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nucleate Vanderbilt — Empowering Biotech Leaders</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E2C97E;
+    --gold-dim: #8B6914;
+    --black: #0A0A08;
+    --near-black: #111110;
+    --surface: #16160F;
+    --surface-2: #1E1E14;
+    --text: #F0EDE4;
+    --text-dim: #9A9580;
+    --border: rgba(201, 168, 76, 0.15);
+    --accent-green: #4CAF7D;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--black);
+    color: var(--text);
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 3rem;
+    background: rgba(10,10,8,0.82);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.3s;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+  }
+
+    .nav-logo-icon {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold-dim));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .nav-brand {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.1;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-brand span {
+    display: block;
+    font-size: 0.65rem;
+    font-family: 'DM Mono', monospace;
+    font-weight: 400;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-top: 1px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--black) !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background 0.2s, transform 0.2s !important;
+  }
+
+  .nav-cta:hover {
+    background: var(--gold-light) !important;
+    color: var(--black) !important;
+    transform: translateY(-1px);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    overflow: hidden;
+    padding: 8rem 3rem 6rem;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 60% 40%, rgba(201,168,76,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 80% at 20% 80%, rgba(76,175,125,0.04) 0%, transparent 60%),
+      linear-gradient(180deg, #0A0A08 0%, #0D0D09 100%);
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 70% 80% at 60% 40%, black 0%, transparent 80%);
+  }
+
+  .hero-molecule {
+    position: absolute;
+    right: 6%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 420px;
+    height: 420px;
+    opacity: 0.35;
+    animation: float 8s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(-50%) rotate(0deg); }
+    50% { transform: translateY(calc(-50% - 18px)) rotate(4deg); }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 1rem;
+    animation: fadeUp 0.8s ease both;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.7); }
+  }
+
+  .hero-headline {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    font-weight: 200;
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 1rem;
+    animation: fadeUp 0.8s 0.15s ease both;
+  }
+
+  .hero-headline em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-dim);
+    max-width: 540px;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.45s ease both;
+    margin-bottom: 0;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--black);
+    padding: 0.85rem 2rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.25s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(201,168,76,0.3);
+  }
+
+  .btn-outline {
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.85rem 2rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.25s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  .hero-stats {
+    position: absolute;
+    bottom: 3rem;
+    left: 3rem;
+    right: 3rem;
+    display: flex;
+    gap: 3rem;
+    z-index: 2;
+    animation: fadeUp 0.8s 0.6s ease both;
+  }
+
+  .hero-stat {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stat-num {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-top: 0.3rem;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 3rem;
+    right: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 2;
+    animation: fadeUp 0.8s 0.7s ease both;
+  }
+
+  .hero-scroll span {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    writing-mode: vertical-rl;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollLine 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollLine {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 6rem 3rem;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 30px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 200;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  /* ── MISSION ── */
+  .mission {
+    background: var(--near-black);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mission-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .mission-text p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--text-dim);
+    margin-bottom: 1.2rem;
+    font-weight: 300;
+  }
+
+  .mission-text p:last-child { margin-bottom: 0; }
+
+  .mission-pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .pillar {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 1.8rem;
+    border-radius: 6px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .pillar:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+  }
+
+  .pillar-icon-wrap {
+    width: 40px; height: 40px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    background: rgba(201,168,76,0.06);
+  }
+  .pillar-icon-wrap svg { width: 18px; height: 18px; }
+  .pillar-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.9rem;
+    display: block;
+  }
+
+  .pillar h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+
+  .pillar p {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: var(--text-dim);
+  }
+
+  /* ── PROGRAMS ── */
+  .programs {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .programs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3.5rem;
+  }
+
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .program-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+
+  .program-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-dim));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+
+  .program-card:hover::before { transform: scaleX(1); }
+
+  .program-card:hover {
+    border-color: rgba(201,168,76,0.4);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+
+  .program-card-inner { padding: 2rem; }
+
+  .program-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    margin-bottom: 1.2rem;
+    opacity: 0.7;
+  }
+
+  .program-icon {
+    width: 48px; height: 48px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 1.3rem;
+  }
+
+  .program-card h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.7rem;
+  }
+
+  .program-card p {
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: var(--text-dim);
+    margin-bottom: 1.5rem;
+  }
+
+  .program-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    font-family: 'DM Mono', monospace;
+    transition: gap 0.2s;
+  }
+
+  .program-link:hover { gap: 0.7rem; }
+
+  /* ── EVENTS ── */
+  .events-section {
+    background: var(--near-black);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .events-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .events-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+  }
+
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .event-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.8rem;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .event-card:hover {
+    border-color: rgba(201,168,76,0.5);
+    transform: translateY(-4px);
+  }
+
+  .event-date {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .event-date-badge {
+    background: rgba(201,168,76,0.12);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.3rem 0.7rem;
+    text-align: center;
+  }
+
+  .event-date-badge .month {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+  }
+
+  .event-date-badge .day {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1;
+    display: block;
+  }
+
+  .event-type-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    background: var(--surface-2);
+    padding: 0.3rem 0.6rem;
+    border-radius: 3px;
+  }
+
+  .event-card h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    line-height: 1.25;
+  }
+
+  .event-card p {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: var(--text-dim);
+    flex: 1;
+    margin-bottom: 1.2rem;
+  }
+
+  .event-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .event-location {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .event-rsvp {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .event-rsvp:hover { opacity: 0.7; }
+
+  /* ── WHY VANDERBILT ── */
+  .why-section {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 5rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+
+  .why-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .why-item {
+    display: flex;
+    gap: 1.2rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--surface);
+    transition: all 0.3s;
+    cursor: default;
+  }
+
+  .why-item:hover {
+    border-color: var(--gold);
+  }
+
+  .why-num {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--gold);
+    opacity: 0.4;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 2.5rem;
+  }
+
+  .why-item h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+  }
+
+  .why-item p {
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
+  .why-visual {
+    position: relative;
+  }
+
+  .nashville-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+
+  .nashville-img-placeholder {
+    height: 220px;
+    background: linear-gradient(135deg, #1a1a0f, #2a2010);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .nashville-img-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 80%, rgba(201,168,76,0.2) 0%, transparent 70%);
+  }
+
+  .skyline-svg {
+    width: 100%;
+    padding: 0 20px;
+    opacity: 0.6;
+  }
+
+  .nashville-card-body {
+    padding: 1.5rem;
+  }
+
+  .nashville-card-body h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .nashville-card-body p {
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
+  .quick-facts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .quick-fact {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.2rem;
+    text-align: center;
+  }
+
+  .quick-fact .num {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+  }
+
+  .quick-fact .label {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    margin-top: 0.3rem;
+    display: block;
+  }
+
+  /* ── TEAM ── */
+  .team-section {
+    background: var(--near-black);
+    border-top: 1px solid var(--border);
+  }
+
+  .team-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .team-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .team-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  .team-card:hover {
+    border-color: rgba(201,168,76,0.5);
+    transform: translateY(-5px);
+  }
+
+  .team-avatar {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .team-avatar::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 40px;
+    background: linear-gradient(to top, var(--surface), transparent);
+  }
+
+  .team-info {
+    padding: 1rem 1.2rem 1.2rem;
+  }
+
+  .team-info h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+
+  .team-info .role {
+    font-size: 0.72rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.4rem;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .team-info .dept {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+  }
+
+  /* ── JOIN ── */
+  .join-section {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 8rem 3rem;
+  }
+
+  .join-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 80% at 50% 50%, rgba(201,168,76,0.08) 0%, transparent 70%),
+      var(--black);
+  }
+
+  .join-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .join-inner .section-label {
+    justify-content: center;
+  }
+
+  .join-inner .section-label::before { display: none; }
+
+  .join-inner .section-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 1.3rem;
+  }
+
+  .join-inner p {
+    font-size: 1.05rem;
+    color: var(--text-dim);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .join-options {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* ── INSTAGRAM STRIP ── */
+  .insta-section {
+    padding: 0 0 5rem;
+    overflow: hidden;
+  }
+
+  .insta-header {
+    padding: 0 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+  .insta-strip {
+    display: flex;
+    gap: 1rem;
+    padding: 0 3rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .insta-strip::-webkit-scrollbar { display: none; }
+
+  .insta-tile {
+    min-width: 220px;
+    height: 220px;
+    border-radius: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.7rem;
+    transition: border-color 0.3s;
+    text-decoration: none;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    padding: 1rem;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .insta-tile:hover { border-color: var(--gold); }
+
+  .insta-tile-icon { font-size: 2rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--near-black);
+    border-top: 1px solid var(--border);
+    padding: 4rem 3rem 2rem;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+  }
+
+  .footer-brand p {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    line-height: 1.7;
+    margin-top: 1rem;
+    max-width: 280px;
+  }
+
+  .footer-col h5 {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+  }
+
+  .footer-col a {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    text-decoration: none;
+    margin-bottom: 0.7rem;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: var(--text); }
+
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.75rem;
+    color: var(--text-dim);
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .social-link {
+    width: 36px; height: 36px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    color: var(--text-dim);
+  }
+
+  .social-link:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  /* ── UTILS ── */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+    margin: 0;
+  }
+
+  /* ── MARQUEE ── */
+  .marquee-wrap {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 1.2rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .marquee-track {
+    display: inline-flex;
+    gap: 3rem;
+    animation: marquee 30s linear infinite;
+  }
+
+  .marquee-item {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .marquee-item::after {
+    content: '';
+    color: var(--gold);
+    font-style: normal;
+    font-size: 0.6rem;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* highlight bar */
+  .highlight-bar {
+    background: linear-gradient(90deg, var(--gold), var(--gold-dim));
+    padding: 0.9rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .highlight-bar p {
+    font-size: 0.82rem;
+    color: var(--black);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  .highlight-bar a {
+    font-size: 0.78rem;
+    color: var(--black);
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--black);
+  }
+
+
+  /* ── EVENTS TABS ── */
+  .events-tab {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 0.5rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .events-tab.active, .events-tab:hover {
+    color: var(--gold);
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.06);
+  }
+
+  /* ── FEATURED EVENT ── */
+  .featured-event {
+    border-color: rgba(201,168,76,0.4) !important;
+    position: relative;
+  }
+  .featured-event::after {
+    content: 'Now Open';
+    position: absolute;
+    top: -1px; right: 1.5rem;
+    background: var(--gold);
+    color: var(--black);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 0 0 4px 4px;
+  }
+
+  /* ── OWEN PARTNER BANNER ── */
+  .owen-banner {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 2.5rem 3rem;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto 0;
+  }
+
+  .owen-logo-box {
+    flex-shrink: 0;
+    width: 140px; height: auto;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold-dim));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 10px;
+  }
+  .owen-logo-box svg { width: 100%; height: 100%; }
+
+  .owen-logo-v {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 200;
+    color: #B8C4D8;
+    letter-spacing: -0.05em;
+    line-height: 1;
+  }
+
+  .owen-text h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.35rem;
+    letter-spacing: 0.01em;
+  }
+
+  .owen-text p {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    line-height: 1.65;
+    font-weight: 300;
+    max-width: 600px;
+  }
+
+  .owen-badge {
+    margin-left: auto;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .owen-badge-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .owen-badge-tag {
+    background: rgba(184,196,216,0.1);
+    border: 1px solid rgba(184,196,216,0.2);
+    color: #B8C4D8;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.9rem;
+    border-radius: 4px;
+  }
+
+  /* ── SPEAKERS SECTION ── */
+  .speakers-section {
+    background: var(--near-black);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .speakers-inner { max-width: 1200px; margin: 0 auto; }
+
+  .speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+    margin-top: 3rem;
+  }
+
+  .speaker-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: all 0.3s;
+  }
+
+  .speaker-card:hover {
+    border-color: rgba(201,168,76,0.4);
+    transform: translateY(-4px);
+  }
+
+  .speaker-avatar {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--surface-2), #2a2010);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--gold);
+  }
+
+  .speaker-card h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    line-height: 1.3;
+  }
+
+  .speaker-card .title {
+    font-size: 0.75rem;
+    color: var(--gold);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.4rem;
+    line-height: 1.4;
+  }
+
+  .speaker-card .topic {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .speaker-seminar-tag {
+    display: inline-block;
+    margin-top: 0.8rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    background: var(--surface-2);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- Announcement Bar -->
+<div class="highlight-bar">
+  <p> Nucleate Vanderbilt is Nashville's newest chapter of the global Nucleate Dojo program.</p>
+  <a href="#join">Join now →</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="logo.png" alt="Nucleate Vanderbilt Logo" style="width: 36px; height: 36px; border-radius: 8px; object-fit: contain;">
+    <div class="nav-brand">
+      Nucleate
+      <span>Vanderbilt</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#speakers">Speakers</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#join" class="nav-cta">Join Us</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <!-- Molecule SVG -->
+  <svg class="hero-molecule" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="ng" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#C9A84C" stop-opacity="1"/>
+        <stop offset="100%" stop-color="#8B6914" stop-opacity="0.2"/>
+      </radialGradient>
+    </defs>
+    <line x1="200" y1="200" x2="120" y2="120" stroke="#C9A84C" stroke-width="1.5" opacity="0.35"/>
+    <line x1="200" y1="200" x2="280" y2="120" stroke="#C9A84C" stroke-width="1.5" opacity="0.35"/>
+    <line x1="200" y1="200" x2="300" y2="240" stroke="#C9A84C" stroke-width="1.5" opacity="0.35"/>
+    <line x1="200" y1="200" x2="140" y2="300" stroke="#C9A84C" stroke-width="1.5" opacity="0.35"/>
+    <line x1="200" y1="200" x2="200" y2="300" stroke="#C9A84C" stroke-width="1.5" opacity="0.35"/>
+    <line x1="120" y1="120" x2="60" y2="160" stroke="#C9A84C" stroke-width="1.5" opacity="0.2"/>
+    <line x1="280" y1="120" x2="340" y2="80" stroke="#C9A84C" stroke-width="1.5" opacity="0.2"/>
+    <line x1="300" y1="240" x2="360" y2="280" stroke="#C9A84C" stroke-width="1.5" opacity="0.2"/>
+    <line x1="140" y1="300" x2="100" y2="360" stroke="#C9A84C" stroke-width="1.5" opacity="0.2"/>
+    <circle cx="200" cy="200" r="17" fill="url(#ng)" opacity="0.9"/>
+    <circle cx="120" cy="120" r="11" fill="#C9A84C" opacity="0.55"/>
+    <circle cx="280" cy="120" r="9" fill="#C9A84C" opacity="0.45"/>
+    <circle cx="300" cy="240" r="12" fill="#C9A84C" opacity="0.55"/>
+    <circle cx="140" cy="300" r="8" fill="#C9A84C" opacity="0.45"/>
+    <circle cx="200" cy="300" r="10" fill="#C9A84C" opacity="0.45"/>
+    <circle cx="60" cy="160" r="6" fill="#C9A84C" opacity="0.25"/>
+    <circle cx="340" cy="80" r="6" fill="#C9A84C" opacity="0.25"/>
+    <circle cx="360" cy="280" r="7" fill="#C9A84C" opacity="0.25"/>
+    <circle cx="100" cy="360" r="5" fill="#C9A84C" opacity="0.2"/>
+    <circle cx="200" cy="200" r="150" stroke="#C9A84C" stroke-width="0.4" fill="none" opacity="0.07" stroke-dasharray="4 9"/>
+    <circle cx="200" cy="200" r="192" stroke="#C9A84C" stroke-width="0.3" fill="none" opacity="0.04" stroke-dasharray="2 11"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-tag">Nashville · Vanderbilt University</div>
+    <h1 class="hero-headline">
+      Forging the next<br>generation of <em>biotech</em><br>leaders
+    </h1>
+    <p class="hero-sub">
+      Nucleate Vanderbilt is a Vanderbilt undergraduate program connecting students with the world of biotech and entrepreneurship — backed by Vanderbilt's Owen Graduate School of Management.
+    </p>
+    <div class="hero-actions">
+      <a href="#join" class="btn-primary">Get Involved →</a>
+      <a href="#about" class="btn-outline">Learn More</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="stat-num">41+</span>
+      <span class="stat-label">Global Chapters</span>
+    </div>
+    <div class="hero-stat">
+      <span class="stat-num">$420M</span>
+      <span class="stat-label">Raised by Alumni</span>
+    </div>
+    <div class="hero-stat">
+      <span class="stat-num">200+</span>
+      <span class="stat-label">Institutions</span>
+    </div>
+    <div class="hero-stat">
+      <span class="stat-num">6+</span>
+      <span class="stat-label">Seminars Hosted</span>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Biotech Innovation</span>
+    <span class="marquee-item">Vanderbilt University</span>
+    <span class="marquee-item">Life Sciences Education</span>
+    <span class="marquee-item">Nashville Biotech</span>
+    <span class="marquee-item">Nucleate Dojo</span>
+    <span class="marquee-item">Venture Building</span>
+    <span class="marquee-item">Scientific Founders</span>
+    <span class="marquee-item">Academic Research</span>
+    <span class="marquee-item">Biotech Innovation</span>
+    <span class="marquee-item">Vanderbilt University</span>
+    <span class="marquee-item">Life Sciences Education</span>
+    <span class="marquee-item">Nashville Biotech</span>
+    <span class="marquee-item">Nucleate Dojo</span>
+    <span class="marquee-item">Venture Building</span>
+    <span class="marquee-item">Scientific Founders</span>
+    <span class="marquee-item">Academic Research</span>
+  </div>
+</div>
+
+
+<!-- OWEN PARTNER BANNER -->
+<section style="padding: 3rem 3rem 3rem;">
+  <div class="owen-banner">
+    <div class="owen-logo-box">
+      <img src="owen logo.png" alt="Owen Graduate School of Management Logo" style="width: 120px; height: auto; object-fit: contain;">
+    </div>
+    <div class="owen-text">
+      <h3>Backed by Vanderbilt's Owen Graduate School of Management</h3>
+      <p>Nucleate Vanderbilt operates in partnership with the Owen Graduate School of Management — one of the nation's premier business schools — hosting our seminars, workshops, and pitch competitions in Owen classrooms and providing institutional support for our programs.</p>
+    </div>
+    <div class="owen-badge">
+      <span class="owen-badge-label">Official Partner</span>
+      <span class="owen-badge-tag">Owen School</span>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission" id="about">
+  <div class="mission-inner">
+    <div class="mission-text">
+      <div class="section-label">Our Mission</div>
+      <h2 class="section-title">Science that<br>shapes the <em>future</em></h2>
+      <p>
+        Nucleate Vanderbilt is Nashville's newest chapter of the international Nucleate Dojo program — a hub for biotechnology and life sciences education that empowers the next wave of scientific entrepreneurs.
+      </p>
+      <p>
+        We bring together undergraduate students from Vanderbilt University and the broader Nashville ecosystem to learn, network, and build together.
+      </p>
+      <p>
+        Through workshops, speaker series, and hands-on programs, we connect Nashville's exceptional scientific talent with the tools, mentors, and community needed to transform research into transformative companies.
+      </p>
+      <br>
+      <a href="#join" class="btn-primary" style="width: fit-content;">Join the Community →</a>
+    </div>
+    <div class="mission-pillars">
+      <div class="pillar">
+        <span class="pillar-icon"></span>
+        <h4>Identify Founders</h4>
+        <p>Recognize and inspire scientific trainees working on high-potential research at Vanderbilt.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-icon"></span>
+        <h4>Educate & Empower</h4>
+        <p>Provide tools and education for biotech talent to launch ventures from their science.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-icon"></span>
+        <h4>Build Bridges</h4>
+        <p>Connect Nashville's life sciences community with the global Nucleate network.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-icon"></span>
+        <h4>Accelerate Ventures</h4>
+        <p>Increase quality and volume of bioventures solving pressing biomedical challenges.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs" style="padding: 6rem 3rem;">
+  <div class="programs" style="max-width: 1200px; margin: 0 auto;">
+    <div class="programs-header">
+      <div>
+        <div class="section-label">What We Do</div>
+        <h2 class="section-title">Programs &<br><em>Initiatives</em></h2>
+      </div>
+      <a href="#join" class="btn-outline">View All →</a>
+    </div>
+    <div class="programs-grid">
+      <div class="program-card">
+        <div class="program-card-inner">
+          <div class="program-num">01 — FLAGSHIP</div>
+
+          <h3>Nucleate Activator</h3>
+          <p>A six-month, equity-free cohort program designed for academic biotech founders. Refine your scientific discovery into a biotech venture thesis with world-class mentorship, legal support, and a final pitch showcase.</p>
+          <a href="https://nucleate.org/activator/" target="_blank" class="program-link">Learn more →</a>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="program-card-inner">
+          <div class="program-num">02 — EDUCATION</div>
+
+          <h3>Speaker Series</h3>
+          <p>Regular panels and fireside chats featuring biotech founders, VCs, and industry experts from Nashville and beyond. From AI in drug discovery to fundraising strategy — learn from the best.</p>
+          <a href="#events" class="program-link">See events →</a>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="program-card-inner">
+          <div class="program-num">03 — NETWORK</div>
+
+          <h3>Community & Networking</h3>
+          <p>Connect with fellow students, researchers, and professionals across Vanderbilt's MD, PhD, MBA, and engineering programs who share a passion for translating science into impact.</p>
+          <a href="#join" class="program-link">Get connected →</a>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="program-card-inner">
+          <div class="program-num">04 — WORKSHOPS</div>
+
+          <h3>BD & Venture Workshops</h3>
+          <p>Hands-on workshops covering business development, IP strategy, regulatory pathways, and venture creation. Practical training for the business side of biotech.</p>
+          <a href="#events" class="program-link">Upcoming sessions →</a>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="program-card-inner">
+          <div class="program-num">05 — MENTORSHIP</div>
+
+          <h3>Mentor Network</h3>
+          <p>Access Nucleate's global network of advisors, including pioneers from Atlas Venture, Ginkgo Bioworks, Harvard, and leading pharma companies — now accessible through the Vanderbilt chapter.</p>
+          <a href="https://nucleate.fillout.com/t/6W6UwRMUL7us" target="_blank" class="program-link">Become a mentor →</a>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="program-card-inner">
+          <div class="program-num">06 — DOJO</div>
+
+          <h3>Dojo Fundamentals</h3>
+          <p>A 6-week biotech course training undergrad and grad researchers in the fundamentals of the biotech sector and early-stage venture creation — open to all Vanderbilt students.</p>
+          <a href="https://dojo.nucleate.xyz" target="_blank" class="program-link">Explore Dojo →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PAST SPEAKERS -->
+<section class="speakers-section" id="speakers">
+  <div class="speakers-inner">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:0;">
+      <div>
+        <div class="section-label">Who We've Hosted</div>
+        <h2 class="section-title">Past <em>Speakers</em></h2>
+      </div>
+      <a href="https://www.instagram.com/nucleate.vanderbilt/" target="_blank" class="btn-outline">See All</a>
+    </div>
+    <div class="speakers-grid">
+
+      <div class="speaker-card">
+
+        <h4>Chris Garabedian</h4>
+        <div class="title">CEO, Xontogeny & Portfolio Manager, PXV Fund</div>
+        <div class="topic">Fundamentals of Life Sciences</div>
+        <span class="speaker-seminar-tag">Dojo Seminar 1</span>
+      </div>
+
+      <div class="speaker-card">
+        <h4>Kit Parker</h4>
+        <div class="title">Professor, Harvard Wyss Institute — Cardiac Biology & Tissue Engineering</div>
+        <div class="topic">Turning cutting-edge research into a thriving biotech startup</div>
+        <span class="speaker-seminar-tag">Dojo Seminar 2</span>
+      </div>
+
+      <div class="speaker-card">
+        <h4>Ania Payne</h4>
+        <div class="title">Founder & CEO, BioHubNash</div>
+        <div class="topic">Market analysis & validating biotech startup concepts</div>
+        <span class="speaker-seminar-tag">Dojo Seminar 3</span>
+      </div>
+
+      <div class="speaker-card">
+        <h4>Ilse Nava-Medina</h4>
+        <div class="title">Co-founder, Gel Matter — Advanced Science Research, CUNY</div>
+        <div class="topic">Intellectual Property & Technical Moat</div>
+        <span class="speaker-seminar-tag">Dojo Seminar 4</span>
+      </div>
+
+      <div class="speaker-card">
+        <h4>Beth Zotter</h4>
+        <div class="title">CEO, Umaro Foods (Shark Tank)</div>
+        <div class="topic">From Shark Tank to revolutionizing food with seaweed protein</div>
+        <span class="speaker-seminar-tag">BioTech Talk</span>
+      </div>
+
+      <div class="speaker-card">
+        <h4>Chase Spurlock</h4>
+        <div class="title">CEO, Decode Health</div>
+        <div class="topic">The Power of Data Science in Precision Medicine</div>
+        <span class="speaker-seminar-tag">BioTech Talk</span>
+      </div>
+
+      <div class="speaker-card">
+        <h4>Jennifer Lee</h4>
+        <div class="title">EVP, Novita Pharmaceuticals</div>
+        <div class="topic">VC funding trends & investment strategies in cancer biotech</div>
+        <span class="speaker-seminar-tag">Inside Biotech</span>
+      </div>
+
+      <div class="speaker-card">
+        <h4>Yesenia Sevilla</h4>
+        <div class="title">TEDx Speaker, Author & EdTech CEO</div>
+        <div class="topic">What makes a pitch land — and what makes one crumble</div>
+        <span class="speaker-seminar-tag">Workshop 3</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="events-section" id="events">
+  <div class="events-inner">
+    <div class="events-header">
+      <div>
+        <div class="section-label">Stay Connected</div>
+        <h2 class="section-title">Upcoming <em>Events</em></h2>
+      </div>
+    </div>
+    <p style="text-align: center; font-size: 1.25rem; color: var(--text-dim); margin-top: 3rem;">Stay tuned — new events coming soon.</p>
+  </div>
+</section>
+
+<!-- WHY VANDERBILT -->
+<section id="nashville" style="padding: 6rem 3rem;">
+  <div class="why-section">
+    <div class="section-label">Why Here</div>
+    <h2 class="section-title">Nashville is a <em>biotech hub</em><br>waiting to ignite</h2>
+    <div class="why-grid">
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-num">01</div>
+          <div>
+            <h4>World-Class Research Institution</h4>
+            <p>Vanderbilt's research enterprise spans biomolecular engineering, genomics, oncology, and neuroscience — generating the cutting-edge science that becomes tomorrow's medicines.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">02</div>
+          <div>
+            <h4>NashBio & BioVU Genomics</h4>
+            <p>Vanderbilt Medical Center hosts one of the world's largest genomic databases with millions of de-identified patient records — a unique asset for diagnostics and drug R&D.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">03</div>
+          <div>
+            <h4>Nashville's Growing Life Sciences Scene</h4>
+            <p>Nashville's health and life sciences ecosystem is rapidly expanding. We connect Vanderbilt talent with local accelerators, investors, and healthcare companies.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">04</div>
+          <div>
+            <h4>Connected to Global Nucleate Network</h4>
+            <p>Members have attended Frontiers Summit 2025 (biotech, healthcare, AI, and space) and connect with Nucleate's global network spanning 41+ chapters and 200+ institutions worldwide.</p>
+          </div>
+        </div>
+      </div>
+      <div class="why-visual">
+        <div class="nashville-card">
+          <div class="nashville-img-placeholder">
+            <!-- Nashville Skyline SVG -->
+            <svg class="skyline-svg" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+              <rect x="30" y="120" width="40" height="80" fill="#C9A84C" opacity="0.3" rx="2"/>
+              <rect x="35" y="100" width="30" height="20" fill="#C9A84C" opacity="0.2" rx="2"/>
+              <rect x="80" y="80" width="50" height="120" fill="#C9A84C" opacity="0.4" rx="2"/>
+              <rect x="85" y="60" width="40" height="20" fill="#C9A84C" opacity="0.3" rx="2"/>
+              <rect x="90" y="40" width="30" height="20" fill="#C9A84C" opacity="0.25" rx="2"/>
+              <rect x="140" y="60" width="60" height="140" fill="#C9A84C" opacity="0.5" rx="2"/>
+              <rect x="150" y="40" width="40" height="20" fill="#C9A84C" opacity="0.4" rx="2"/>
+              <rect x="155" y="20" width="30" height="20" fill="#C9A84C" opacity="0.35" rx="2"/>
+              <rect x="160" y="5" width="20" height="15" fill="#C9A84C" opacity="0.3" rx="1"/>
+              <rect x="210" y="90" width="45" height="110" fill="#C9A84C" opacity="0.35" rx="2"/>
+              <rect x="265" y="70" width="55" height="130" fill="#C9A84C" opacity="0.45" rx="2"/>
+              <rect x="275" y="50" width="35" height="20" fill="#C9A84C" opacity="0.35" rx="2"/>
+              <rect x="330" y="100" width="40" height="100" fill="#C9A84C" opacity="0.3" rx="2"/>
+              <rect x="380" y="85" width="50" height="115" fill="#C9A84C" opacity="0.4" rx="2"/>
+              <rect x="390" y="65" width="30" height="20" fill="#C9A84C" opacity="0.3" rx="2"/>
+              <rect x="440" y="110" width="45" height="90" fill="#C9A84C" opacity="0.3" rx="2"/>
+              <rect x="495" y="95" width="40" height="105" fill="#C9A84C" opacity="0.35" rx="2"/>
+              <rect x="545" y="125" width="35" height="75" fill="#C9A84C" opacity="0.25" rx="2"/>
+              <!-- Reflection -->
+              <rect x="0" y="200" width="600" height="2" fill="#C9A84C" opacity="0.15"/>
+            </svg>
+          </div>
+          <div class="nashville-card-body">
+            <h4>Nashville, Tennessee</h4>
+            <p>Home to Vanderbilt University Medical Center, one of the nation's top research hospitals and a world leader in genomics, biomedical innovation, and translational medicine.</p>
+          </div>
+        </div>
+        <div class="quick-facts">
+          <div class="quick-fact">
+            <span class="num">Top 15</span>
+            <span class="label">Research University</span>
+          </div>
+          <div class="quick-fact">
+            <span class="num">$1B+</span>
+            <span class="label">Annual Research Funding</span>
+          </div>
+          <div class="quick-fact">
+            <span class="num">$1K</span>
+            <span class="label">Pitch Prize Money</span>
+          </div>
+          <div class="quick-fact">
+            <span class="num">3.4M+</span>
+            <span class="label">BioVU Patient Records</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-section" id="team">
+  <div class="team-inner">
+    <div class="team-header">
+      <div>
+        <div class="section-label">The People</div>
+        <h2 class="section-title">Meet the <em>team</em></h2>
+      </div>
+      <a href="https://www.linkedin.com/company/nucleate-vanderbilt/posts/?feedView=all" target="_blank" class="btn-outline">View on LinkedIn →</a>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar" style="background: url('Webb.jpeg') center/cover;"></div>
+        <div class="team-info">
+          <h4>William Webb</h4>
+          <div class="role">Director</div>
+          <div class="dept">Vanderbilt University</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background: url('alisa.jpeg') center/cover;"></div>
+        <div class="team-info">
+          <h4>Alisa Shmidt</h4>
+          <div class="role">Co-founder & President</div>
+          <div class="dept">Vanderbilt University</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background: url('nilesh.jpeg') center/cover;"></div>
+        <div class="team-info">
+          <h4>Nilesh Kumar</h4>
+          <div class="role">Co-founder & President</div>
+          <div class="dept">Vanderbilt University</div>
+        </div>
+      </div>
+    </div>
+    <p style="text-align: center; margin-top: 2.5rem; font-size: 0.85rem; color: var(--text-dim);">
+      We are a growing team of passionate students across Vanderbilt's PhD, MD, and MBA programs. 
+      <a href="#join" style="color: var(--gold); text-decoration: none;">Interested in leadership? →</a>
+    </p>
+  </div>
+</section>
+
+
+<!-- JOIN -->
+<section class="join-section" id="join">
+  <div class="join-bg"></div>
+  <div class="join-inner">
+    <div class="section-label">Ready to Begin?</div>
+    <h2 class="section-title">
+      Be part of<br>Nashville's <em>biotech</em> future
+    </h2>
+    <p>
+      Whether you're an undergrad, MBA, PhD, or MD student — if you're curious about biotech, entrepreneurship, or life sciences innovation, Nucleate Vanderbilt has a place for you. Join Nashville's fast-growing biotech community backed by Owen Graduate School.
+    </p>
+    <div class="join-options">
+      <a href="https://airtable.com/appqxhKrawmwkQ2f8/shrdXLtry4fc4Bqqz" target="_blank" class="btn-primary">Apply for Leadership →</a>
+      <a href="https://nucleate.fillout.com/t/6W6UwRMUL7us" target="_blank" class="btn-outline">Become a Mentor</a>
+      <a href="https://www.instagram.com/nucleate.vanderbilt/" target="_blank" class="btn-outline">Follow Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <img src="logo.png" alt="Nucleate Vanderbilt Logo" style="width: 36px; height: 36px; border-radius: 8px; object-fit: contain;">
+        <div class="nav-brand" style="font-size: 1.2rem;">
+          Nucleate
+          <span>Vanderbilt</span>
+        </div>
+      </div>
+      <p>Nashville's chapter of the global Nucleate Dojo program. Empowering the next generation of biotech leaders at Vanderbilt University and beyond.</p>
+      <div class="social-links" style="margin-top: 1.2rem;">
+        <a class="social-link" href="https://www.instagram.com/nucleate.vanderbilt/" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a class="social-link" href="https://www.linkedin.com/company/nucleate-vanderbilt/posts/?feedView=all" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a class="social-link" href="https://nucleate.org" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.374 0 12s5.374 12 12 12 12-5.374 12-12S18.626 0 12 0zm-.5 2.05A9.95 9.95 0 0121.95 12c0 5.467-4.383 9.908-9.85 9.95V2.05zm-1 0v19.9C5.083 21.908.7 17.467.7 12S5.083 2.092 10.5 2.05zM2.05 11.5h8.45v-8.4a9.446 9.446 0 00-8.45 8.4zm11 0h8.9a9.446 9.446 0 00-8.9-8.4v8.4zm8.9 1h-8.9v8.4a9.446 9.446 0 008.9-8.4zm-19.9 0h8.45v8.4a9.446 9.446 0 01-8.45-8.4z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Programs</h5>
+      <a href="https://nucleate.org/activator/" target="_blank">Nucleate Activator</a>
+      <a href="#programs">Speaker Series</a>
+      <a href="#programs">Workshops</a>
+      <a href="https://dojo.nucleate.xyz" target="_blank">Dojo Fundamentals</a>
+      <a href="#programs">Mentor Network</a>
+    </div>
+    <div class="footer-col">
+      <h5>Community</h5>
+      <a href="#about">About Us</a>
+      <a href="#team">Our Team</a>
+      <a href="#events">Events</a>
+      <a href="https://lu.ma/nucleate" target="_blank">Event Calendar</a>
+      <a href="https://www.instagram.com/nucleate.vanderbilt/" target="_blank">Instagram</a>
+    </div>
+    <div class="footer-col">
+      <h5>Join</h5>
+      <a href="https://airtable.com/appqxhKrawmwkQ2f8/shrdXLtry4fc4Bqqz" target="_blank">Leadership Application</a>
+      <a href="https://nucleate.fillout.com/t/6W6UwRMUL7us" target="_blank">Become a Mentor</a>
+      <a href="https://nucleate.org/activator/" target="_blank">Activator Program</a>
+      <a href="https://nucleate.org/contact/" target="_blank">Contact HQ</a>
+      <a href="https://nucleate.org/donate/" target="_blank">Support Nucleate</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Nucleate Vanderbilt. Part of the global <a href="https://nucleate.org" target="_blank" style="color: var(--gold); text-decoration: none;">Nucleate</a> network.</p>
+    <p>Nashville, TN · Vanderbilt University</p>
+  </div>
+</footer>
+
+<script>
+  // Smooth scroll offset for fixed nav
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (el) {
+        e.preventDefault();
+        window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.pillar, .program-card, .event-card, .team-card, .why-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease, border-color 0.3s';
+    observer.observe(el);
+  });
+
+  function showTab(tab) {
+    document.getElementById('upcoming-events').style.display = tab === 'upcoming' ? 'grid' : 'none';
+    document.getElementById('past-events').style.display = tab === 'past' ? 'grid' : 'none';
+    document.querySelectorAll('.events-tab').forEach((btn, i) => {
+      btn.classList.toggle('active', (i === 0 && tab === 'upcoming') || (i === 1 && tab === 'past'));
+    });
+  }
+
+</script>
+</body>
+</html>
